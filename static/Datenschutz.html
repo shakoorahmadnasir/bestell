@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Datenschutz - Pizzeria La Torre</title>
+    <style>
+      :root {
+        --accent-color: #ff6600;
+        --bg-color: #ffffff;
+        --text-color: #333;
+        --highlight-color: #2a9d8f;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fbe8d3;
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+        color: var(--accent-color);
+        margin-bottom: 10px;
+        position: relative;
+        font-size: 28px;
+      }
+
+      h1::after,
+      h2::after {
+        content: "";
+        display: block;
+        width: 50%;
+        height: 3px;
+        background-color: var(--accent-color);
+        margin: 10px auto 0;
+        border-radius: 3px;
+      }
+
+      .content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        max-width: 1200px;
+        margin: 20px auto; /* Abstand oben erhöht */
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      ul li {
+        margin-bottom: 10px;
+      }
+
+      a {
+        color: var(--accent-color);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* Responsive Design */
+      @media screen and (max-width: 768px) {
+        h1,
+        h2 {
+          font-size: 24px; /* Kleinere Schriftgröße für mobile Geräte */
+        }
+
+        .content {
+          padding: 15px; /* Weniger Padding auf kleineren Bildschirmen */
+          margin: 5px 5px; /* Weniger Abstand links/rechts und oben/unten */
+          border: solid black;
+        }
+
+        ul {
+          padding-left: 10px; /* Weniger Abstand bei Listen */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="content">
+        <h2>Datenschutzerklärung</h2>
+        <p>
+          Wir freuen uns, dass Sie unsere Webseite verwenden, um Lebensmittel
+          und Gerichte zu bestellen:
+        </p>
+        <p>
+          <strong>Website:</strong>
+          <a href="https:www.latorre.de">www.Latorre.de</a>
+        </p>
+
+        <p><strong>Wer ist verantwortlich für die Datenerfassung?</strong></p>
+        <p>
+          Pizzeria La Torre<br />
+          Kirchplatz 2-4<br />
+          42579 Heiligenhaus<br />
+          Telefon: 02056 68538<br />
+          E-Mail:
+          <a href="info@pizzeria-heiligenhaus.de"
+            >info@pizzeria-heiligenhaus.de</a
+          >
+        </p>
+
+        <p><strong>Wie erfassen wir Ihre Daten?</strong></p>
+        <ul>
+          <li>
+            Automatische Datenerfassung wie IP-Adresse, Browsertyp,
+            Betriebssystem, Referrer-URL und Uhrzeit (Server-Log-Dateien).
+          </li>
+          <li>
+            Bei Bestellungen: Name, Adresse, Telefonnummer, Bezahlart und
+            bestellte Artikel.
+          </li>
+        </ul>
+
+        <p><strong>Wofür nutzen wir Ihre Daten?</strong></p>
+        <p>
+          Ihre Daten werden zur Zubereitung und Lieferung von Bestellungen
+          genutzt. Es erfolgt keine Weitergabe an Dritte, außer zur
+          Zahlungsabwicklung (z. B. PayPal).
+        </p>
+
+        <p><strong>Speicherdauer:</strong></p>
+        <ul>
+          <li>Server-Log-Dateien: 7 Tage.</li>
+          <li>Bestelldaten: Tägliche Löschung.</li>
+        </ul>
+
+        <p><strong>Rechte bezüglich Ihrer Daten:</strong></p>
+        <ul>
+          <li>Auskunft über gespeicherte Daten.</li>
+          <li>Berichtigung, Sperrung oder Löschung von Daten.</li>
+          <li>Beschwerde bei einer Datenschutzaufsichtsbehörde.</li>
+        </ul>
+
+        <p><strong>Cookies und LocalStorage:</strong></p>
+        <p>
+          Unsere Website verwendet keine Cookies. Stattdessen speichern wir
+          Warenkorbinformationen lokal in Ihrem Browser mit LocalStorage. Diese
+          Daten bleiben auf Ihrem Gerät.
+        </p>
+
+        <p><strong>Bezahlart PayPal:</strong></p>
+        <p>
+          Zur Zahlungsabwicklung übermitteln wir Bestelldetails an PayPal.
+          Weitere Informationen finden Sie unter:
+          <a href="https://www.paypal.com/de/webapps/mpp/ua/privacy-full"
+            >https://www.paypal.com/de/webapps/mpp/ua/privacy-full</a
+          >
+        </p>
+
+        <p><strong>SSL-/TLS-Verschlüsselung:</strong></p>
+        <p>
+          Unsere Website verwendet SSL-/TLS-Verschlüsselung, um Ihre Daten
+          sicher zu übertragen.
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

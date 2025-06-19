@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bestellung bestätigen</title>
+    <link rel="stylesheet" href="confirm.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Bestellung bestätigen</h1>
+    </header>
+
+    <main>
+      <div class="order-details">
+        <h2>Bestelldetails</h2>
+        <ul id="order-items">
+          <!-- Dynamisch generierte Bestelldetails -->
+        </ul>
+        <p>Gesamt: <span id="order-total">0,00 €</span></p>
+      </div>
+
+      <div class="actions">
+        <button id="confirm-order" class="btn btn-confirm">
+          Bestellung annehmen
+        </button>
+        <button id="reject-order" class="btn btn-reject">
+          Bestellung ablehnen
+        </button>
+      </div>
+    </main>
+
+    <script src="confirm.js"></script>
+  </body>
+</html>

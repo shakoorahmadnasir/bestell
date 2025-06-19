@@ -1,0 +1,66 @@
+/* Allgemeine Stile */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+header {
+  background-color: #28a745;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+main {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.order-details {
+  margin-bottom: 20px;
+}
+
+.order-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.order-details ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.order-details ul li:last-child {
+  border-bottom: none;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-confirm {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-reject {
+  background-color: #dc3545;
+  color: white;
+}

@@ -1,0 +1,616 @@
+:root {
+  --accent-color: rgb(208, 84, 12);
+  --bg-color: #ffffff;
+  --text-color: #333;
+  --highlight-color: #2a9d8f;
+  --price-color: #2a9d8f; /* Neue Farbe für Preise */
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-mid: 0 6px 12px rgba(0, 0, 0, 0.15);
+  --shadow-cart: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --border-color: #ddd;
+  --font-main: "Poppins", sans-serif;
+}
+
+/* Allgemeine Stile */
+body {
+  font-family: var(--font-main);
+  margin: 0;
+  padding: 0;
+  background-color: #f7cd9d;
+  color: var(--text-color);
+}
+
+h2,
+h3 {
+  color: black;
+  text-align: center;
+  font-weight: bold;
+}
+.header {
+  position: relative; /* Ermöglicht die Positionierung der Bilder */
+  background-color: rgb(208, 84, 12); /* Fallback-Hintergrundfarbe */
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.header h1 {
+  position: relative;
+  z-index: 2; /* Sicherstellen, dass der Text über den Bildern liegt */
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.header h1::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 3px;
+  background-color: #fff; /* Strich unter der Überschrift */
+  margin: 10px auto 0;
+  border-radius: 3px;
+}
+
+.background-image-left,
+.background-image-right {
+  position: absolute;
+  z-index: 1; /* Bilder liegen unter dem Text */
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.background-image-left {
+  top: -30px; /* Abstand vom oberen Rand */
+  left: -50px; /* Abstand vom linken Rand */
+  width: 250px;
+  height: 250px;
+  background-image: url("A_realistic_depiction_of_just_a_few_French_fries_f-removebg-preview.png");
+}
+
+.background-image-right {
+  top: -10px;
+  right: 10px; /* Abstand vom rechten Rand */
+  width: 200px;
+  height: 200px;
+  background-image: url("A_dynamic_depiction_of_a_burger_with_its_ingredien-removebg-preview.png");
+}
+
+/*.navbar a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: bold;
+  border-radius: 12px;
+  padding: 10px 15px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+  background-color: var(--highlight-color);
+  color: #fff;
+}*/
+
+/* Layout der Startseite */
+.order-page {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  height: 700px; /* Feste Höhe */
+  width: 1200px; /* Feste Breite */
+  margin: 30px auto;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: var(--bg-color);
+  border-radius: 15px;
+  box-shadow: var(--shadow-light);
+}
+
+/* View Category Button */
+.view-category {
+  display: inline-block;
+  margin-top: 5px;
+  text-decoration: none;
+  background-color: rgb(208, 84, 12);
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.view-category:hover,
+.view-category:focus {
+  background-color: var(--highlight-color);
+  color: white;
+}
+
+.category-item.pizza {
+  background-image: url("pizza.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 40px;
+}
+
+.category-item.pasta {
+  background-image: url("pasta1.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 40px;
+}
+
+.category-item.salate {
+  background-image: url("salte.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 40px;
+}
+
+.category-item.vorspeisen {
+  background-image: url("vorspeise.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 40px;
+}
+
+.category-item.schnitzel {
+  background-image: url("schnitzel.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 40px;
+}
+
+.category-item.burger {
+  background-image: url("burger.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 40px;
+}
+
+.category-item.pizzabrötchen {
+  background-image: url("pizzabrötchen.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 40px;
+}
+
+.category-item.aufläufe {
+  background-image: url("auflauf.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 40px;
+}
+
+.category-item.getränke {
+  background-image: url("getränke.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 40px;
+}
+.item-list {
+  flex: 3;
+  height: 700px; /* Feste Höhe für Scrollen */
+  overflow-y: auto; /* Scrollfunktion aktivieren */
+}
+
+/* Scrollbar-Stile Unsichtbar machen */
+
+/* WebKit (Chrome, Safari, neue Edge-Versionen) */
+.item-list::-webkit-scrollbar {
+  display: none;
+}
+/* Kategorien-Bereich */
+.category-item {
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 10px;
+  margin-right: 12px;
+  margin-bottom: 15px;
+  text-align: center;
+  box-shadow: var(--shadow-light);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.category-item h2 {
+  margin-top: 10px;
+}
+
+/* Gemeinsame Stile für alle Kategorien */
+.category-item h3 {
+  font-size: 3rem; /* Schriftgröße für alle Kategorien */
+  font-weight: bold; /* Fett formatieren */
+  line-height: 1.2; /* Zeilenhöhe */
+  margin: 0; /* Kein Einfluss auf Container-Layout */
+  padding: 0; /* Kein Einfluss auf Container-Layout */
+  text-align: center; /* Optional: Zentrierung */
+  color: white; /* Farbe für Pasta */
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+/* Spezifische Farben für einzelne Kategorien */
+
+.price {
+  color: var(--highlight-color);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* in den warenkorb*/
+.order-button {
+  background-color: var(--accent-color);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.order-button:hover {
+  background-color: var(--highlight-color);
+  box-shadow: var(--shadow);
+}
+
+.size-button.active {
+  background-color: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
+.back-button {
+  background-color: var(--accent-color);
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: left;
+  margin: 20px auto;
+  display: block;
+}
+
+.back-button:hover {
+  background-color: var(--highlight-color);
+}
+
+/* Warenkorb */
+.cart {
+  flex: 1.5;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: auto; /* Feste maximale Höhe */
+  overflow-y: scroll; /* Ermöglicht Scrollen */
+  scrollbar-width: none; /* Für Firefox */
+  -ms-overflow-style: none; /* Für Internet Explorer und Edge */
+  overflow-x: hidden; /* Verhindert horizontales Scrollen */
+  max-width: 100%; /* Maximale Breite relativ zum Eltern-Container */
+  box-sizing: border-box; /* Padding und Border in der Breite berücksichtigen */
+}
+
+.cart h3 {
+  font-size: 1.8em;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 10px;
+}
+
+.cart-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1em;
+  color: black;
+}
+.cart-item-details {
+  font-size: 1.2em; /* Größere Schriftgröße */
+  color: var(--price-color); /* Neue Farbe */
+  line-height: 1;
+  display: flex;
+  justify-content: flex-end; /* Elemente nach rechts ausrichten */
+  align-items: center;
+  margin-top: 15px;
+  font-weight: bold;
+  gap: 10px; /* Optional: Abstand zwischen Name und Preis */
+}
+
+.cart .delete-item {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #ff4d4f;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s;
+}
+
+.cart .delete-item:hover,
+.cart .delete-item:focus {
+  color: #d9363e;
+}
+
+.cart .total {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #333;
+  margin-top: 40px;
+  text-align: left; /* Text nach links ausrichten */
+}
+
+.cart .checkout-button {
+  background-color: var(--highlight-color);
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  margin-top: 20px;
+}
+
+.cart .checkout-button:hover,
+.cart .checkout-button:focus {
+  background-color: var(--accent-color);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Kommentar-Eingabefeld */
+.comment-input {
+  width: 96%;
+  max-width: 400px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 0.85rem;
+  margin: 12px auto;
+  display: block;
+  resize: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.comment-input:focus {
+  border-color: var(--accent-color);
+  outline: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Größen-Auswahl */
+.item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1000px;
+}
+
+.size-selector {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+.size-button {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.size-button:hover {
+  background-color: #ff6600;
+  color: #fff;
+  border-color: #ff6600;
+}
+
+.size-button.active {
+  background-color: #2a9d8f;
+  color: #fff;
+  border-color: #2a9d8f;
+
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+/* Kontaktbereich */
+.contact-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px;
+  padding-top: 0px;
+  background-color: #fff;
+  margin: 10px;
+  margin-bottom: 20px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+  gap: 20px;
+}
+
+.contact-item {
+  flex: 1;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.contact-item h2 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.contact-item p {
+  font-size: 0.9rem;
+  color: #333;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.contact-section a {
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: text-decoration 0.3s;
+}
+
+.contact-section a:hover,
+.contact-section a:focus {
+  text-decoration: underline;
+}
+
+/* Divider */
+.divider {
+  width: 2px;
+  background-color: #ccc;
+  height: auto;
+  align-self: stretch;
+}
+
+/* Fokus-Stile für bessere Zugänglichkeit */
+
+.size-button:focus,
+.navbar a:focus,
+.order-button:focus,
+.view-category:focus,
+.checkout-button:focus,
+.delete-item:focus,
+.comment-input:focus {
+  outline: 2px dashed var(--accent-color);
+  outline-offset: 2px;
+  outline: none;
+}
+
+/* Optimierung der Button-Stile für Konsistenz */
+button {
+  font-family: var(--font-main);
+}
+
+.order-button,
+.back-button,
+.size-button,
+.checkout-button {
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+@media (max-width: 768px) {
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+  }
+
+  .header {
+    text-align: center;
+    padding: 15px;
+    background-color: #d0540c;
+    color: white;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    margin: 0;
+    width: 100%;
+  }
+
+  .category-item {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .cart {
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .cart h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #d0540c;
+  }
+
+  .contact-section {
+    padding: 10px;
+    margin: 10px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+  }
+
+  .contact-item {
+    margin-bottom: 10px;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #d0540c;
+    color: white;
+    font-size: 0.8rem;
+  }
+}

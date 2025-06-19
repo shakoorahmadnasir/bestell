@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizzeria La Torre</title>
+    <style>
+      /* CSS-Regeln, die das Design steuern */
+      /* CSS-Regeln, die das Design steuern */
+      :root {
+        --accent-color: #ff6600;
+        --bg-color: #ffffff;
+        --text-color: #333;
+        --highlight-color: #2a9d8f;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fbe8d3;
+        color: var(--text-color);
+        line-height: 1.5rem;
+      }
+
+      h1,
+      h2,
+      h3 {
+        text-align: center;
+        color: var(--accent-color);
+        margin-bottom: 10px;
+        position: relative;
+        font-size: 28px;
+      }
+
+      h1::after,
+      h2::after,
+      h3::after {
+        content: "";
+        display: block;
+        width: 50%;
+        height: 3px;
+        background-color: var(--accent-color);
+        margin: 10px auto 0;
+        border-radius: 3px;
+      }
+
+      .header h1 {
+        color: #fff; /* Weißer Text, um sich vom orangefarbenen Hintergrund abzuheben */
+      }
+
+      .header {
+        background-color: var(--accent-color);
+        color: #fff; /* Weißer Text */
+        padding: 20px;
+        margin: 20px 12px 12px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-radius: 12px;
+      }
+
+      .order-page {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .top-row {
+        background-color: #fff;
+        padding: 15px;
+        padding-top: 10px;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+
+      .bottom-row {
+        display: flex;
+        gap: 20px;
+      }
+
+      .bottom-row > section {
+        flex: 1;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      ul li {
+        margin-bottom: 10px;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+
+      /* Responsive Design für Smartphones */
+      @media screen and (max-width: 768px) {
+        .order-page {
+          padding: 5px; /* Gleichmäßiger Abstand links und rechts */
+          width: calc(100% - 20px);
+          margin: 0 auto;
+        }
+
+        .top-row,
+        .bottom-row > section {
+          width: calc(100% - 0px); /* Container nehmen 100% minus Padding ein */
+          margin: 0 auto; /* Zentriert den Container horizontal */
+        }
+
+        .bottom-row {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <header class="header">
+      <h1>Pizzeria La Torre</h1>
+    </header>-->
+
+    <main>
+      <!-- Main Container -->
+      <div class="order-page">
+        <!-- Top Row: Full Width Intro Text -->
+        <div class="top-row">
+          <h2>Willkommen bei Pizzeria La Torre</h2>
+          <p>
+            Sehr geehrte Damen und Herren, seit mehreren Jahrzehnten steht das
+            La Torre, DIE PIZZERIA in Heiligenhaus, für reichhaltige und leckere
+            italienische Küche! Wir bieten Ihnen verschiedenste Pizza-, Pasta-
+            und Salatgerichte und erfüllen Ihnen selbstverständlich jegliche
+            Eigenkreationen im Rahmen unserer Möglichkeiten. Und das Beste:
+            Unser Lieferservice bringt die Speisen auch zu IHNEN!
+          </p>
+        </div>
+
+        <!-- Bottom Row: Zusatzstoffe and Allergene -->
+        <div class="bottom-row">
+          <!-- Left Column: Zusatzstoffe -->
+
+          <!-- Right Column: Allergene -->
+          <section id="allergene">
+            <h3>Allergene</h3>
+            <p>
+              Seit November 2005 müssen Allergene auf Produktve packungen
+              deklariert werden. Da wir fast ausschließlich unverpackte Speisen
+              liefern und natürlicher weise fast alle unsere Speisen mindestens
+              einen allergenen Stoff beinhalten, finden Sie eine Kennzeich nung
+              auf unserer Speisekarte. 1.Alle Pizzen enthalten Gluten (Weizen)
+              und
+            </p>
+            <ul>
+              <li>Glutenhaltiges Getreide (Weizen)</li>
+              <li>Milch (Laktose)</li>
+              <li>Eier</li>
+              <li>Fisch</li>
+              <li>Krebstiere</li>
+              <li>Sellerie</li>
+              <li>Sesamsamen</li>
+              <li>Schwefeldioxid & Sulfite</li>
+              <li>Erdnüsse</li>
+              <li>Schalenfrüchte</li>
+              <li>Senf</li>
+              <li>Sojabohnen</li>
+              <li>Weichtiere</li>
+            </ul>
+          </section>
+
+          <section id="zusatzstoffe">
+            <h3>Zusatzstoffe</h3>
+            <ul>
+              <li>Mit Farbstoff</li>
+              <li>Mit Konservierungsstoffen</li>
+              <li>Mit Geschmacksverstärkern</li>
+              <li>Mit Antioxidationsmitteln</li>
+              <li>Mit Süßungsmittel</li>
+              <li>Mit Phosphat</li>
+              <li>Koffeinhaltig</li>
+              <li>Chininhaltig</li>
+              <li>Geschwärzt</li>
+              <li>Enthält Phenylalaninquelle</li>
+              <p>
+                1.Alle Pizzen enthalten Gluten (Weizen) und Milch (Laktose),
+                sofern nicht anders angegeben.
+              </p>
+              <p>
+                2.Alle Nudelgerichte enthalten Gluten (Weizengluten) und Milch
+                (Laktose), sofern nicht anders angegeben
+              </p>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

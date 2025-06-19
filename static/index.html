@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="1.css" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizzeria La Torre</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="background-image-left"></div>
+      <div class="background-image-right"></div>
+      <h1>Pizzeria La Torre</h1>
+    </header>
+
+    <!-- Hauptcontainer -->
+    <div class="order-page">
+      <!-- Kategorienbereich -->
+      <div class="item-list">
+        <div class="menu-categories"></div>
+      </div>
+
+      <!-- Dynamischer Bereich für Speisekarten -->
+      <div>
+        <!-- Hier werden die Speisekarten dynamisch geladen -->
+      </div>
+
+      <!-- Warenkorb -->
+      <div class="cart">
+        <h3>Warenkorb</h3>
+        <div id="cart-items"></div>
+        <textarea
+          class="comment-input"
+          rows="1"
+          maxlength="50"
+          placeholder="Kommentar hinzufügen..."
+        ></textarea>
+        <div class="total">Gesamt: <span id="total-price">0,00 €</span></div>
+        <button
+          class="checkout-button"
+          onclick="window.location.href='checkout.html';"
+        >
+          Zur Kasse
+        </button>
+      </div>
+    </div>
+
+    <div class="contact-section">
+      <!-- Section 1: Address and Contact -->
+      <div class="contact-item">
+        <div class="contact-header">
+          <h2>Kontakt</h2>
+        </div>
+        <div class="contact-content">
+          <p>Adresse: Kirchplatz 2-4, 42579 Heiligenhaus</p>
+          <p>Telefon: 02056 68538</p>
+          <p>
+            E-Mail:
+            <a href="mailto:info@pizzeria-heiligenhaus.de"
+              >info@pizzeria-heiligenhaus.de</a
+            >
+          </p>
+          <p><a href="zusatsstoffe.html">Allergene Zusatstoffe</a></p>
+          <a href="Datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Section 2: Opening Hours -->
+      <div class="contact-item">
+        <div class="contact-header">
+          <h2>Öffnungszeiten</h2>
+        </div>
+        <div class="contact-content">
+          <p>Mo. / Mi. / Do: 13:00 - 21:00 Uhr</p>
+          <p>Fr. / Sa.: 13:00 - 21:30 Uhr</p>
+          <p>Dienstags: Ruhetag</p>
+          <p>Sonn- und Feiertags: 13:00 - 21:30 Uhr</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

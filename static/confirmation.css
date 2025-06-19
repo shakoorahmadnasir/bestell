@@ -1,0 +1,109 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fbe8d3;
+  color: #333;
+  overflow-x: hidden;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.header {
+  background-color: #ff6600;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  margin: 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 60vh;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#order-summary-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+}
+
+#product-list,
+#delivery-info {
+  flex: 1;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+#product-list p,
+#delivery-info p,
+#product-list ul,
+#delivery-info ul,
+#product-list li,
+#delivery-info li {
+  margin: 8px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+#product-list ul,
+#delivery-info ul {
+  padding-left: 0;
+}
+
+#product-list li,
+#delivery-info li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+#product-list .total-price {
+  color: #2a9d8f; /* Farbe für den Gesamtpreis (Rot als Beispiel) */
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 15px;
+  text-align: left;
+}
+
+h2 {
+  color: #ff6600;
+  margin-bottom: 15px;
+}
+
+.button {
+  display: block; /* Blockelement, damit die Zentrierung funktioniert */
+  margin: 20px auto; /* Zentriert den Button horizontal */
+  width: 200px; /* Feste Breite für den Button */
+  padding: 10px 0; /* Vertikaler Innenabstand, kompakt gehalten */
+  background-color: #ff6600; /* Orangefarbener Hintergrund */
+  color: white; /* Weißer Text */
+  font-size: 1rem; /* Standard-Schriftgröße */
+  text-align: center; /* Zentrierter Text */
+  text-decoration: none; /* Entfernt Unterstreichung */
+  border-radius: 8px; /* Runde Kanten */
+  cursor: pointer; /* Hand-Cursor bei Hover */
+  transition: background-color 0.3s ease; /* Weicher Übergang bei Hover */
+}
+
+.button:hover {
+  background-color: darkorange; /* Dunkleres Orange bei Hover */
+}
