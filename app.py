@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template , send_from_directory
 from flask_cors import CORS
 from models import db, Order, OrderItem, initialize_db
 
@@ -10,6 +10,35 @@ CORS(app)
 # Initialisiere die Datenbank
 initialize_db(app)
 
+# Index Route
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+#checkout Route
+@app.route('/checkout')
+def checkout():
+    return render_template('checkout.html')
+
+#admin Route
+@app.route('/admin')
+def admin():
+    return render_template('admin.html')
+
+#confirmation Route
+@app.route('/confirmation')
+def confirmation():
+    return render_template('confirmation.html')
+
+#Privacy Policy Route
+@app.route('/privacy_policy')
+def privacy():
+    return render_template('Datenschutz.html')
+
+#Privacy Policy Route
+@app.route('/additives')
+def additives():
+    return render_template('zusatsstoffe.html')
 
 # GET: Alle Bestellungen abrufen
 @app.route("/api/orders", methods=["GET"])

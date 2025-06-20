@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const orderDetails = JSON.parse(sessionStorage.getItem("cartData")) || [];
   if (orderDetails.length === 0) {
     alert("Keine Bestellung gefunden.");
-    window.location.href = "startseite.html"; // Zurück zur Startseite, falls leer
+    window.location.href = "index.html"; // Zurück zur Startseite, falls leer
     return;
   }
 
@@ -40,6 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("reject-order").addEventListener("click", () => {
     alert("Bestellung wurde abgelehnt.");
     sessionStorage.removeItem("cartData"); // Warenkorb leeren
-    window.location.href = "startseite.html"; // Zurück zur Startseite
+    window.location.href = "index.html"; // Zurück zur Startseite
   });
 });

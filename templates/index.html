@@ -7,7 +7,7 @@
     />
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/1.css') }}"
+      href="{{ url_for('static', filename='1.css') }}"
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,8 +36,9 @@
         ></textarea>
         <div class="total">Gesamt: <span id="total-price">0,00 €</span></div>
         <button
+          id="checkout-btn"
           class="checkout-button"
-          onclick="window.location.href='{{ url_for('checkout') }}';"
+          onclick="window.location.href='{{ url_for('checkout')}}';"
         >
           Zur Kasse
         </button>
@@ -84,6 +85,6 @@
       </div>
     </div>
 
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
   </body>
 </html>

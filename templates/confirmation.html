@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bestellbestätigung</title>
-    <link rel="stylesheet" href="confirmation.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='confirmation.css') }}" />
   </head>
   <body>
     <header class="header">
@@ -27,6 +27,6 @@
     <a href="index.html" class="button" id="return-home">
       Zurück zur Startseite
     </a>
-    <script src="confirmation.js"></script>
+    <script src="{{ url_for('static', filename='confirmation.js') }}"></script>
   </body>
 </html>
