@@ -5,6 +5,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='1.css') }}"
@@ -18,14 +19,21 @@
       <div class="background-image-left"></div>
       <div class="background-image-right"></div>
       <h1>Pizzeria La Torre</h1>
+      <a class="b-icon" href="#basket">
+        <i class="fas fa-shopping-cart"></i>
+      </a>
+      <div>
+
+      </div>
     </header>
 
     <div class="order-page">
       <div class="item-list">
         <div class="menu-categories"></div>
       </div>
+    </div>
 
-      <div class="cart">
+    <div class="cart" id="basket">
         <h3>Warenkorb</h3>
         <div id="cart-items"></div>
         <textarea
@@ -43,7 +51,6 @@
           Zur Kasse
         </button>
       </div>
-    </div>
 
     <div class="contact-section">
       <div class="contact-item">
