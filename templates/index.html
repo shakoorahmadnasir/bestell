@@ -31,26 +31,26 @@
       <div class="item-list">
         <div class="menu-categories"></div>
       </div>
-    </div>
 
-    <div class="cart" id="basket">
-        <h3>Warenkorb</h3>
-        <div id="cart-items"></div>
-        <textarea
-          class="comment-input"
-          rows="1"
-          maxlength="50"
-          placeholder="Kommentar hinzufügen..."
-        ></textarea>
-        <div class="total">Gesamt: <span id="total-price">0,00 €</span></div>
-        <button
-          id="checkout-btn"
-          class="checkout-button"
-          onclick="window.location.href='{{ url_for('checkout')}}';"
-        >
-          Zur Kasse
-        </button>
+      <div class="cart" id="basket">
+          <h3>Warenkorb</h3>
+          <div id="cart-items"></div>
+          <textarea
+            class="comment-input"
+            rows="1"
+            maxlength="50"
+            placeholder="Kommentar hinzufügen..."
+          ></textarea>
+          <div class="total">Gesamt: <span id="total-price">0,00 €</span></div>
+          <button
+            id="checkout-btn"
+            class="checkout-button"
+            onclick="window.location.href='{{ url_for('checkout')}}';"
+          >
+            Zur Kasse
+          </button>
       </div>
+    </div>
 
     <div class="contact-section">
       <div class="contact-item">

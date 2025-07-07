@@ -399,6 +399,7 @@ h3 {
 }
 
 .b-icon{
+  display: none;
   color: #ffffff;
   float: left;
   margin-left: 73%;
@@ -407,7 +408,7 @@ h3 {
 /* Kommentar-Eingabefeld */
 .comment-input {
   width: 96%;
-  max-width: 400px;
+  max-width: 90%;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   padding: 10px;
@@ -623,6 +624,7 @@ button {
     font-size: 0.8rem;
   }
   .b-icon{
+    display: none;
     color: #ffffff;
     float: left;
     margin-left: 65%;
@@ -630,7 +632,7 @@ button {
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 430px) {
   body {
     margin: 0;
     padding: 0;
@@ -737,12 +739,24 @@ button {
   }
 
   .order-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 5px;
   }
   .b-icon{
-  color: #ffffff;
-  float: left;
-  margin-left: 65%;
-  padding-top: 8px;
-}
+    display: block;
+    color: #ffffff;
+    float: left;
+    margin-left: 65%;
+    padding-top: 8px;
+  }
+  .item-list{
+    display: block;
+    width: 100%
+  }
+  .cart{
+    display: block;
+    width: 100%;
+  }
 }
