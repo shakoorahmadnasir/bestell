@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       }</td>
                       <td>${new Date(order.date).toLocaleString()}</td>
                       <td>${order.paymentMethod}</td>
+                      <td>${order.phoneNumber}</td>
                       <td>
                           <button class="delete-order" data-id="${
                             order.id

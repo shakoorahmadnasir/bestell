@@ -13,6 +13,7 @@ class Order(db.Model):
     pickup_time = db.Column(db.String(50), nullable=True)
     payment_method = db.Column(db.String(50), nullable=False)
     date = db.Column(db.DateTime, default=datetime.utcnow, index=True)  # Index für Sortierung nach Datum
+    phone_number = db.Column(db.String(13), nullable=True) # ✅ New field
     items = db.relationship("OrderItem", backref="order", cascade="all, delete-orphan")
 
 class OrderItem(db.Model):

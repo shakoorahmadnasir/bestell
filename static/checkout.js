@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
       pickupTime:
         deliveryOption.value === "pickup" ? pickupTimeSelect.value : null,
       paymentMethod: paymentMethodField.value,
-      phone: document.getElementById("phone").value,
+      phoneNumber: document.getElementById("phone").value,
       name: document.getElementById("name").value,
     };
 
@@ -231,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((response) => {
         if (response.ok) {
           sessionStorage.removeItem("cartData");
-          window.location.href = "confirmation.html";
+          window.location.href = "/confirmation";
         } else {
           alert("Fehler beim Absenden der Bestellung.");
         }

@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     deliveryInfo.innerHTML = `
           <h2>Lieferinformationen</h2>
           <p><strong>Name:</strong> ${orderDetails.name}</p>
-          <p><strong>Telefon:</strong> ${orderDetails.phone}</p>
+          <p><strong>Telefon:</strong> ${orderDetails.phoneNumber}</p>
           <p><strong>Lieferoption:</strong> ${
             orderDetails.deliveryOption === "pickup" ? "Abholung" : "Lieferung"
           }</p>

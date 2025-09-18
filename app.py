@@ -100,6 +100,7 @@ def get_orders():
                 "pickupTime": order.pickup_time,
                 "paymentMethod": order.payment_method,
                 "date": order.date.isoformat(),
+                "phoneNumber": order.phone_number,
                 "items": [
                     {"name": item.name, "price": item.price, "quantity": item.quantity}
                     for item in order.items
@@ -126,6 +127,7 @@ def create_order():
             address=data.get("address"),
             pickup_time=data.get("pickupTime"),
             payment_method=data["paymentMethod"],
+            phone_number=data["phoneNumber"],
         )
         for item in data["items"]:
             new_order.items.append(OrderItem(name=item["name"], price=item["price"], quantity=item["quantity"]))
