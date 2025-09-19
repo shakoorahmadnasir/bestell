@@ -14,6 +14,7 @@ class Order(db.Model):
     payment_method = db.Column(db.String(50), nullable=False)
     date = db.Column(db.DateTime, default=datetime.utcnow, index=True)  # Index für Sortierung nach Datum
     phone_number = db.Column(db.String(13), nullable=True) # ✅ New field
+    deleted = db.Column(db.Boolean, default=False)  # soft delete flag
     items = db.relationship("OrderItem", backref="order", cascade="all, delete-orphan")
 
 class OrderItem(db.Model):

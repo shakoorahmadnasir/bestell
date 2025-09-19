@@ -108,7 +108,7 @@ def print_receipt(order_id):
 @app.route("/api/orders", methods=["GET"])
 def get_orders():
     try:
-        orders = Order.query.all()
+        orders = Order.query.filter_by(deleted=False).all()
         return jsonify([
             {
                 "id": order.id,
@@ -159,14 +159,12 @@ def create_order():
 @app.route("/api/orders/<int:order_id>", methods=["DELETE"])
 def delete_order(order_id):
     try:
-        order = Order.query.get(order_id)
-        if not order:
-            return jsonify({"error": "Bestellung nicht gefunden"}), 404
-        db.session.delete(order)
+        order = Order.query.get_or_404(order_id)
+        order.deleted = True
         db.session.commit()
-        return jsonify({"message": "Bestellung erfolgreich gelöscht"}), 200
+        return jsonify({"message": "Order soft deleted successfully"}), 200
     except Exception as e:
-        return jsonify({"error": "Fehler beim Löschen der Bestellung", "details": str(e)}), 500
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
     app.run(debug=True)

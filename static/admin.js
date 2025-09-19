@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Eventlistener für Lösch-Buttons hinzufügen
         document.querySelectorAll(".delete-order").forEach((button) => {
           button.addEventListener("click", (e) => {
-            const orderId = e.target.dataset.id;
+            const orderId = e.currentTarget.dataset.id;  // ✅ correct element
             deleteOrder(orderId);
           });
         });
