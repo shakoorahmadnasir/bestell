@@ -86,6 +86,24 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
+#Print Receipt
+# @app.route("/api/orders/<int:order_id>/receipt", methods=["GET"])
+# def print_receipt(order_id):
+#     try:
+#         order = Order.query.get_or_404(order_id)
+#         return render_template("receipt.html", order=order)
+#     except Exception as e:
+#         return f"Error generating receipt: {str(e)}", 500
+@app.route("/api/orders/<int:order_id>/receipt", methods=["GET"])
+def print_receipt(order_id):
+    try:
+        order = Order.query.get_or_404(order_id)
+        total = sum(item.price * item.quantity for item in order.items)
+        return render_template("receipt.html", order=order, total=total)
+    except Exception as e:
+        return f"Error generating receipt: {str(e)}", 500
+
+
 # GET: Alle Bestellungen abrufen
 @app.route("/api/orders", methods=["GET"])
 def get_orders():

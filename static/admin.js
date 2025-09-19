@@ -37,6 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
                           <button class="delete-order" data-id="${
                             order.id
                           }">Löschen</button>
+                          <!-- Print Receipt -->
+                          <a href="/api/orders/${order.id}/receipt" target="_blank" class="print-receipt">Print Receipt</a>
                       </td>
                   `;
           ordersBody.appendChild(row);
