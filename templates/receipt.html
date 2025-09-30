@@ -35,7 +35,7 @@
       <tbody>
         {% for item in order.items %}
         <tr>
-          <td>{{ item.name }}</td>
+          <td>{{ item.name }}<br>{{ item.toppings }}</td>
           <td>{{ item.quantity }}</td>
           <td>{{ "%.2f"|format(item.price * item.quantity) }} €</td>
         </tr>

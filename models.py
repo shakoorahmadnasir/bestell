@@ -24,6 +24,9 @@ class OrderItem(db.Model):
     name = db.Column(db.String(100), nullable=False)
     price = db.Column(db.Float, nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
+    # ✅ New fields
+    toppings = db.Column(db.String(255), nullable=True)   # Comma-separated list
+    comment = db.Column(db.String(255), nullable=True)    # Customer comment
 
 class User(db.Model, UserMixin):
     __tablename__ = "users"

@@ -17,6 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
                               <div>${(item.price * item.quantity).toFixed(
                                 2
                               )} €</div>
+                              <div>
+                                <span>Belage: ${item.toppings}</span>
+                                <span>Kommentar: ${item.comment}</span>
+                              </div>
                           </li>
                       `
                 )

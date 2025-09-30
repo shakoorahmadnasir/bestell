@@ -91,6 +91,24 @@
         </div>
       </div>
     </div>
+    
+    <!-- Item Options Modal -->
+    <div id="itemModal" class="hidden" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#00000080;display:flex;align-items:center;justify-content:center;z-index:9999;">
+      <div class="modal-content" style="background:white;padding:20px;border-radius:8px;max-width:400px;width:100%;">
+        <h3 id="modalItemName"></h3>
+        <p id="modalItemDescription"></p>
+        <div id="toppingsContainer"></div>
+
+        <label for="itemComment">Kommentar:</label>
+        <textarea id="itemComment" rows="2" placeholder="z.B. ohne Zwiebeln..." style="width:100%;"></textarea>
+
+        <div style="margin-top:10px;display:flex;gap:10px;justify-content:flex-end;">
+          <button id="confirmAddBtn">In den Warenkorb</button>
+          <button id="cancelBtn">Abbrechen</button>
+        </div>
+      </div>
+    </div>
+
 
     <script src="{{ url_for('static', filename='main.js') }}"></script>
   </body>

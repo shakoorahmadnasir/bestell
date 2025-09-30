@@ -19,9 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
                       <td>${order.items
                         .map(
                           (item) =>
-                            `${item.quantity} × ${item.name} (${(
+                            `${item.quantity} × <strong> ${item.name} </strong> (${(
                               item.price * item.quantity
-                            ).toFixed(2)} €)`
+                            ).toFixed(2)} €), Belage: ${item.toppings}, Kommentar: ${item.comment} `
                         )
                         .join("<br>")}</td>
                       <td>${totalOrderPrice.toFixed(2)} €</td>

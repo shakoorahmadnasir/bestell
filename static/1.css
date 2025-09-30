@@ -760,3 +760,9 @@ button {
     width: 100%;
   }
 }
+
+/****** POP UP WINDOW ******/
+/* Overlay */
+.hidden {
+  display: none !important;
+}

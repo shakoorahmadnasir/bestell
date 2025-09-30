@@ -1,3 +1,13 @@
+const itemModal = document.getElementById("itemModal");
+const modalItemName = document.getElementById("modalItemName");
+const modalItemDescription = document.getElementById("modalItemDescription");
+const toppingsContainer = document.getElementById("toppingsContainer");
+const itemComment = document.getElementById("itemComment");
+const confirmAddBtn = document.getElementById("confirmAddBtn");
+const cancelBtn = document.getElementById("cancelBtn");
+
+let pendingItem = null; // holds the item user clicked before confirming
+
 const categoryToppings = {
   pizza: ["Extra Käse", "Peperoni", "Pilze", "Oliven"],
   burger: ["Extra Käse", "Speck", "Zwiebeln"],
@@ -739,7 +749,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Bind order buttons to add selected size to cart
   function bindOrderButtons() {
     document.querySelectorAll(".order-button").forEach((button) => {
-      button.addEventListener("click", (event) => {
+      button.addEventListener("click", () => {
         const name = button.getAttribute("data-name");
         const price = parseFloat(button.getAttribute("data-price"));
 
@@ -748,19 +758,90 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
-        addToCart(name, price);
+        openItemModal(name, price); //addToCart(name, price); instead of adding directly, open modal
       });
     });
   }
 
-  // Add item to cart
-  function addToCart(name, price) {
-    const existingItem = cart.find((item) => item.name === name);
-    if (existingItem) {
-      existingItem.quantity += 1;
-    } else {
-      cart.push({ name, price, quantity: 1 });
+  //Modal for Item
+  function openItemModal(name, price) {
+    // find product description
+    let product = null;
+    for (const category in categoryData) {
+      product = categoryData[category].find(item => 
+        item.name === name || `${item.name} (klein)` === name || `${item.name} (mittel)` === name || `${item.name} (groß)` === name
+      );
+      if (product) {
+        // keep track of the matched category for toppings
+        pendingItem = { name, price, description: product.description, category };
+        break;
+      }
     }
+
+    modalItemName.textContent = name;
+    modalItemDescription.textContent = product?.description || "";
+    itemModal.classList.remove("hidden");
+    // render toppings checkboxes
+    toppingsContainer.innerHTML = "";
+    const toppings = categoryToppings[pendingItem.category] || [];
+    if (toppings.length > 0) {
+      toppings.forEach((t) => {
+        const label = document.createElement("label");
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.value = t;
+        label.appendChild(checkbox);
+        label.appendChild(document.createTextNode(" " + t));
+        toppingsContainer.appendChild(label);
+        toppingsContainer.appendChild(document.createElement("br"));
+      });
+    }
+
+    itemComment.value = "";
+
+    itemModal.classList.remove("hidden");
+  }
+
+  //Order Conformation and Cancellation
+  confirmAddBtn.addEventListener("click", () => {
+    if (!pendingItem) return;
+
+    const selectedToppings = Array.from(
+      toppingsContainer.querySelectorAll("input:checked")
+    ).map(cb => cb.value);
+
+    const comment = itemComment.value.trim();
+
+    addToCart(pendingItem.name, pendingItem.price, selectedToppings, comment);
+    closeItemModal();
+  });
+
+  cancelBtn.addEventListener("click", () => {
+    closeItemModal();
+  });
+
+  function closeItemModal() {
+    itemModal.classList.add("hidden");
+    pendingItem = null;
+  }
+
+  // Add item to cart
+  function addToCart(name, price, toppings = [], comment = "") {
+    // if no toppings and no comment → merge with existing
+    if (toppings.length === 0 && comment === "") {
+      const existingItem = cart.find((item) => 
+        item.name === name &&
+        (!item.toppings || item.toppings.length === 0) &&
+        (!item.comment || item.comment === "")
+      );
+      if (existingItem) {
+        existingItem.quantity += 1;
+        updateCart();
+        return;
+      }
+    }
+    // otherwise add as new entry
+    cart.push({ name, price, quantity: 1, toppings, comment });
     updateCart();
   }
 
@@ -771,6 +852,8 @@ document.addEventListener("DOMContentLoaded", () => {
         (item, index) => `
         <div class="cart-item">
           <div class="cart-item-header">${item.quantity} × ${item.name}</div>
+          ${item.toppings?.length ? `<div class="cart-item-toppings">Extras: ${item.toppings.join(", ")}</div>` : ""}
+          ${item.comment ? `<div class="cart-item-comment">Kommentar: ${item.comment}</div>` : ""}
           <div class="cart-item-details">${(item.price * item.quantity).toFixed(
             2
           )} €</div>

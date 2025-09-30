@@ -8,6 +8,8 @@ from wtforms.validators import InputRequired, Length, ValidationError
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_bcrypt import Bcrypt 
 
+from flask_migrate import Migrate
+
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///orders.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -16,6 +18,8 @@ CORS(app)
 
 # Initialisiere die Datenbank
 initialize_db(app)
+
+migrate = Migrate(app, db)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -120,7 +124,7 @@ def get_orders():
                 "date": order.date.isoformat(),
                 "phoneNumber": order.phone_number,
                 "items": [
-                    {"name": item.name, "price": item.price, "quantity": item.quantity}
+                    {"name": item.name, "price": item.price, "quantity": item.quantity, "toppings": item.toppings, "comment": item.comment}
                     for item in order.items
                 ]
             }
@@ -148,7 +152,14 @@ def create_order():
             phone_number=data["phoneNumber"],
         )
         for item in data["items"]:
-            new_order.items.append(OrderItem(name=item["name"], price=item["price"], quantity=item["quantity"]))
+            order_item = OrderItem(
+                name=item["name"],
+                price=item["price"],
+                quantity=item["quantity"],
+                toppings=",".join(item.get("toppings", [])),  # NEW
+                comment=item.get("comment", ""),              # NEW
+            )
+            new_order.items.append(order_item)
         db.session.add(new_order)
         db.session.commit()
         return jsonify({"message": "Bestellung erfolgreich hinzugefügt"}), 201
