@@ -892,3 +892,36 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCart();
   history.replaceState({ view: "categories" }, "Kategorien");
 });
+
+// check out confirmation
+const checkoutBtn = document.getElementById("checkout-btn");
+const checkoutModal = document.getElementById("checkoutModal");
+const checkoutClose = document.getElementById("checkoutClose");
+const proceedCheckoutBtn = document.getElementById("proceedCheckoutBtn");
+const continueShoppingBtn = document.getElementById("continueShoppingBtn");
+
+// show the modal
+checkoutBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  checkoutModal.classList.remove("hidden");
+  checkoutModal.setAttribute("aria-hidden", "false");
+});
+
+// hide helpers
+function hideCheckoutModal() {
+  checkoutModal.classList.add("hidden");
+  checkoutModal.setAttribute("aria-hidden", "true");
+}
+
+checkoutClose.addEventListener("click", hideCheckoutModal);
+continueShoppingBtn.addEventListener("click", hideCheckoutModal);
+
+// proceed
+proceedCheckoutBtn.addEventListener("click", () => {
+  window.location.href = "/checkout"; 
+});
+
+// optional: click outside to close
+checkoutModal.addEventListener("click", (ev) => {
+  if (ev.target === checkoutModal) hideCheckoutModal();
+});

@@ -45,7 +45,6 @@
           <button
             id="checkout-btn"
             class="checkout-button"
-            onclick="window.location.href='{{ url_for('checkout')}}';"
           >
             Zur Kasse
           </button>
@@ -109,6 +108,18 @@
       </div>
     </div>
 
+    <!-- Checkout Confirmation Modal -->
+    <div id="checkoutModal" class="hidden" aria-hidden="true">
+      <div class="modal-content">
+        <span class="close" id="checkoutClose" aria-label="close">&times;</span>
+        <h2>Zur Kasse gehen?</h2>
+        <p>Möchten Sie wirklich zur Kasse gehen oder weitere Artikel hinzufügen?</p>
+        <div class="modal-actions">
+          <button id="proceedCheckoutBtn" class="btn-primary">Zur Kasse</button>
+          <button id="continueShoppingBtn" class="btn-secondary">Mehr hinzufügen</button>
+        </div>
+      </div>
+    </div>
 
     <script src="{{ url_for('static', filename='main.js') }}"></script>
   </body>
