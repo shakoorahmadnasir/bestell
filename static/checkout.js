@@ -49,6 +49,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   initializeCart();
+  const initialSelected = deliveryLocationSelect.selectedOptions[0];
+  if (initialSelected) {
+    deliveryCost = parseFloat(initialSelected.dataset.cost || 0);
+    minimumOrderValue = MINIMUM_ORDER_VALUES[initialSelected.value.toLowerCase()] || 0;
+  }
+  updateTotal();
+  checkMinimumOrderValue();
 
   // Generiere Zeit-Slots
   function generateTimeSlots(closingHour) {
@@ -88,12 +95,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Zahlungsmethode auswählen
   paymentButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      const selectedMethod = event.target.dataset.value;
+    button.addEventListener("click", () => {
+      const selectedMethod = button.dataset.value; //button not event.target
       paymentMethodField.value = selectedMethod;
 
       paymentButtons.forEach((btn) => btn.classList.remove("selected"));
-      event.target.classList.add("selected");
+      button.classList.add("selected");
     });
   });
 
