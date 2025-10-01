@@ -114,7 +114,28 @@ document.addEventListener("DOMContentLoaded", () => {
     checkMinimumOrderValue();
   });
 
+  // function updateTotal() {
+  //   const finalTotal = total + deliveryCost;
+  //   cartTotalElement.textContent = `${finalTotal.toFixed(2)} €`;
+  // }
   function updateTotal() {
+    // clear list and rebuild
+    cartItemsContainer.innerHTML = "";
+    total = 0;
+    cartData.forEach((item) => {
+      const itemTotal = item.price * item.quantity;
+      total += itemTotal;
+      const li = document.createElement("li");
+      li.innerHTML = `<span>${item.quantity} × ${item.name}</span><span>${itemTotal.toFixed(2)} €</span>`;
+      cartItemsContainer.appendChild(li);
+    });
+
+    if (deliveryOption.value === "delivery" && deliveryCost > 0) {
+      const deliveryLi = document.createElement("li");
+      deliveryLi.innerHTML = `<span>Lieferung (${deliveryLocationSelect.value})</span><span>${deliveryCost.toFixed(2)} €</span>`;
+      cartItemsContainer.appendChild(deliveryLi);
+    }
+
     const finalTotal = total + deliveryCost;
     cartTotalElement.textContent = `${finalTotal.toFixed(2)} €`;
   }
@@ -210,6 +231,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const orderDetails = {
       items: cartData,
       total: (total + deliveryCost).toFixed(2),
+      deliveryCost: deliveryCost.toFixed(2),         // new for delivery-cost 
+      deliveryLocation: deliveryLocationSelect.value, // new for deliver-location label
       deliveryOption: deliveryOption.value,
       deliveryLocation:
         deliveryOption.value === "delivery"
